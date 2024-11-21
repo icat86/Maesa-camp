@@ -22,4 +22,6 @@ if something not working try this in terminal (powershell)
 - 'php artisan config:clear'
 
 
+the user's page is on progress
+
 
