@@ -7,6 +7,8 @@ Build with laravel v11.x
 
 - [Bootstrap v5.3](https://getbootstrap.com/)
 - [Tailwind.css v3.4.13](https://tailwindcss.com/)
+- [Fontawesome.com](https://fontawesome.com/)
+- [icons8](https://icons8.com/icons)
 
 type in command terminal :
 
@@ -22,6 +24,6 @@ if something not working try this in terminal (powershell)
 - 'php artisan config:clear'
 
 
-the user's page is on progress
+the user's page is on progress, this will need the '.env' file whch is the database information and
 
 
