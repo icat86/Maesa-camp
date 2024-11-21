@@ -23,7 +23,8 @@ if something not working try this in terminal (powershell)
 - 'php artisan view:clear'
 - 'php artisan config:clear'
 
+## Description
+the user's page is on progress. need the '.env' file to work, which is essential because it have some database information (create it at folder project)
 
-the user's page is on progress, this will need the '.env' file whch is the database information and
 
 
