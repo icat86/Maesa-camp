@@ -14,7 +14,7 @@ type in command terminal :
 - "npm run dev"
 - "php artisan serve" (for run the code)
 
-if not working something not working try this in terminal (powershell)
+if something not working try this in terminal (powershell)
 
 - 'php artisan route:clear'
 - 'php artisan cache:clear'
