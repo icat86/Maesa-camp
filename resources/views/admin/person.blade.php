@@ -36,31 +36,37 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($people as $index => $employe)
-                                <tr class="border-b">
-                                <td class="py-3 px-4">{{ $index + 1 }}</td>
-                                <td class="py-3 px-4">{{ $employe->ktp_id }}</td>
-                                <td class="py-3 px-4">{{ $employe->name }}</td>
-                                <td class="py-3 px-4">{{ $employe->gender }}</td>
-                                <td class="py-3 px-4">{{ $employe->company }}</td>
-                                <td class="py-3 px-4">{{ $employe->sponsor_company }}</td>
-                                {{-- <td class="py-3 px-4">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $room->status_class }}">
-                                        {{ $room->status }}
-                                    </span>
-                                </td> --}}
-                                <td class="py-2 px-4 flex space-x-2">
-                                    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 rounded" type="button" data-bs-toggle="modal" data-bs-target="#editEmployeeModal"
-                                    onclick="openEditModal({{ $employe->id }}, '{{ $employe->name }}', '{{ $employe->ktp_id }}', '{{ $employe->company }}', '{{ $employe->sponsor_company }}', '{{ $employe->gender }}')">
-                                        Manage
-                                    </button>
-                                    <form action="{{ route('person.destroy', $employe->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this person?');">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
-                                </td>
-                            @endforeach
+                            @if (isset($people) && $people->isEmpty())
+                                <tr>
+                                    <td colspan="7" class="text-center py-3 px-4">No data available.</td>
+                                </tr>
+                            @else
+                                @foreach($people as $index => $employe)
+                                    <tr class="border-b">
+                                    <td class="py-3 px-4">{{ $index + 1 }}</td>
+                                    <td class="py-3 px-4">{{ $employe->ktp_id }}</td>
+                                    <td class="py-3 px-4">{{ $employe->name }}</td>
+                                    <td class="py-3 px-4">{{ $employe->gender }}</td>
+                                    <td class="py-3 px-4">{{ $employe->company }}</td>
+                                    <td class="py-3 px-4">{{ $employe->sponsor_company }}</td>
+                                    {{-- <td class="py-3 px-4">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $room->status_class }}">
+                                            {{ $room->status }}
+                                        </span>
+                                    </td> --}}
+                                    <td class="py-2 px-4 flex space-x-2">
+                                        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 rounded" type="button" data-bs-toggle="modal" data-bs-target="#editEmployeeModal"
+                                        onclick="openEditModal({{ $employe->id }}, '{{ $employe->name }}', '{{ $employe->ktp_id }}', '{{ $employe->company }}', '{{ $employe->sponsor_company }}', '{{ $employe->gender }}')">
+                                            Manage
+                                        </button>
+                                        <form action="{{ route('person.destroy', $employe->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this person?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>    

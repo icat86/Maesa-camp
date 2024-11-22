@@ -45,13 +45,12 @@ Route::middleware(['auth', 'adminMiddleware'])->group(function () {
     Route::get('/admin/reports', [ReportController::class, 'index'])->name('admin.reports');
 
     // Person routes
-    Route::get('admin/person', [PersonController::class, 'index'])->name('admin.person');
+    Route::get('/admin/person', [PersonController::class, 'index'])->name('admin.person');
 
     // Check-In routes
     //Route::get('/admin/checkin', [PersonController::class, 'checkIn'])->name('admin.checkin');
     Route::get('admin/checkin' , [CheckInController::class, 'checkIn'])->name('admin.checkin');       //tambahan
-
-    Route::post('/admin/checkin/store', [CheckInController::class, 'store'])->name(name: 'admin.checkin.store');
+    Route::post('/admin/checkin/store', [CheckInController::class, 'store'])->name( 'admin.checkin.store');
 
     // Person management (edit, delete and store routes)
     Route::put('/person/{person}', [PersonController::class, 'update'])->name('person.update');  

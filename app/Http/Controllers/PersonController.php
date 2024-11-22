@@ -14,7 +14,7 @@ class PersonController extends Controller
         $people = Person::all();
 
         // Pass data to the 'admin.person' view
-        return view('admin.person', data: compact('people'));
+        return view('admin.person',  compact('people'));
     }
 
     // Store a new person entry

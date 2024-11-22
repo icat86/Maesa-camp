@@ -14,4 +14,9 @@ class person extends Model
     protected $fillable = [
         'name', 'ktp_id', 'gender', 'company', 'sponsor_company'
     ];
+
+    public function checkIns()
+    {
+        return $this->hasMany(CheckIn::class);
+    }
 }
