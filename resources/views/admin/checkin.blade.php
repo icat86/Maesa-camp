@@ -69,8 +69,8 @@
                     </tbody>
                 </table>
 
-                <!-- Hidden input for selected persons -->
-                <input type="hidden" id="selectedPersons" name="selected_persons">
+                <!-- Hidden input for selected persons (for now is useless) -->
+                {{-- <input type="hidden" id="selectedPersons" name="selected_persons"> --}}
 
                 <!-- Section 3: Other Requirements -->
                 <div class="mt-8">
@@ -101,7 +101,39 @@
                                 </tr>
                             </thead>
                             <tbody id="accommodationTableBody">
+                                <tr>
+                                    <td>
+                                        <select name="person_id[]" class="w-full p-2 border border-gray-300 rounded-lg">
+                                            <option value="">Select</option>
+                                            @foreach($people as $person)
+                                                <option value="{{ $person->id }}">{{ $person->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="id[]" class="w-full p-2 border border-gray-300 rounded-lg">
+                                    </td>
+                                    <td>
+                                        <input type="date" name="date_in[]" class="w-full p-2 border border-gray-300 rounded-lg">
+                                    </td>
+                                    <td>
+                                        <input type="date" name="date_out[]" class="w-full p-2 border border-gray-300 rounded-lg">
+                                    </td>
+                                    <td>
+                                        <select name="room_type[]" class="w-full p-2 border border-gray-300 rounded-lg">
+                                            <option value="Single">Single</option>
+                                            <option value="Double">Double</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="remarks[]" class="w-full p-2 border border-gray-300 rounded-lg">
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="deleteAccommodationRow(this)" class="bg-red-500 text-white px-4 py-1 rounded-lg hover:bg-red-600">Delete</button>
+                                    </td>
+                                </tr>
                             </tbody>
+                            
                         </table>
                     </div>
                 </div>
@@ -170,11 +202,11 @@
                 function updateHiddenInput() {
                     const tableBody = document.getElementById('selectedPersonsTable').querySelector('tbody');
                     const selectedIds = Array.from(tableBody.rows).map(row => row.dataset.id);
-                    document.getElementById('selectedPersons').value = selectedIds.join(',');
+                    document.getElementById('selectedPersons').value = JSON.stringify(selectedIds);
                 }
 
 
-                //bagian accommodation
+                //accommodation part
                 function addAccommodationRow() {
                     const tableBody = document.getElementById("accommodationTableBody");
                     const row = tableBody.insertRow();
@@ -199,10 +231,10 @@
                                                <option value="Double">Double</option>
                                            </select>`;
                     
-                    idCell.innerHTML = `<input type="text" name="accommodation_ktp[]" class="w-full p-2 border border-gray-300 rounded-lg">`;
-                    dateInCell.innerHTML = `<input type="date" name="accommodation_date_in[]" class="w-full p-2 border border-gray-300 rounded-lg">`;
-                    dateOutCell.innerHTML = `<input type="date" name="accommodation_date_out[]" class="w-full p-2 border border-gray-300 rounded-lg">`;
-                    remarksCell.innerHTML = `<input type="text" name="accommodation_remarks[]" class="w-full p-2 border border-gray-300 rounded-lg">`;
+                    idCell.innerHTML = `<input type="text" name="id[]" class="w-full p-2 border border-gray-300 rounded-lg">`;
+                    dateInCell.innerHTML = `<input type="date" name="date_in[]" class="w-full p-2 border border-gray-300 rounded-lg">`;
+                    dateOutCell.innerHTML = `<input type="date" name="date_out[]" class="w-full p-2 border border-gray-300 rounded-lg">`;
+                    remarksCell.innerHTML = `<input type="text" name="remarks[]" class="w-full p-2 border border-gray-300 rounded-lg">`;
                     actionCell.innerHTML = `<button type="button" onclick="deleteAccommodationRow(this)" class="bg-red-500 text-white px-4 py-1 rounded-lg hover:bg-red-600">Delete</button>`;
                 }
 

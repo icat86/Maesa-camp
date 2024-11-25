@@ -11,6 +11,9 @@ class person extends Model
 
     protected $table = 'persons';  // Jika tabel bernama 'persons'
 
+    //if gonna use created at, and updated at
+    public $timestamps = true;
+
     protected $fillable = [
         'name', 'ktp_id', 'gender', 'company', 'sponsor_company'
     ];
