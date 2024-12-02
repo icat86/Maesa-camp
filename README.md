@@ -24,9 +24,14 @@ if something not working try this in terminal (powershell)
 - 'php artisan config:clear'
 
 
-build with docker
+## update build with docker
 
+type in bash
 - 'docker compose up --build -d'
+
+run at port 8080, vite 5173
+
+localhost:8080
 
 ## Description
 the user's page is on progress. need the '.env' file to work, which is essential because it have some database information (create it at folder project)
