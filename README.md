@@ -23,6 +23,11 @@ if something not working try this in terminal (powershell)
 - 'php artisan view:clear'
 - 'php artisan config:clear'
 
+
+build with docker
+
+- 'docker compose up --build -d'
+
 ## Description
 the user's page is on progress. need the '.env' file to work, which is essential because it have some database information (create it at folder project)
 
