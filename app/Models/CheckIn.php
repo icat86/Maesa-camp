@@ -33,3 +33,4 @@ class CheckIn extends Model
     // Jika Anda ingin menonaktifkan timestamps (created_at, updated_at)
     // public $timestamps = false;
 }
+
